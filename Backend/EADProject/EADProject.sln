@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EADBackEndAPI", "EADBackEndAPI\EADBackEndAPI.csproj", "{622E833C-DE77-43F6-BBD5-652D4A86CDF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{622E833C-DE77-43F6-BBD5-652D4A86CDF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622E833C-DE77-43F6-BBD5-652D4A86CDF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622E833C-DE77-43F6-BBD5-652D4A86CDF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622E833C-DE77-43F6-BBD5-652D4A86CDF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86861BC0-4726-47F9-947C-646F1B81ECAD}
+	EndGlobalSection
+EndGlobal
