@@ -26,10 +26,18 @@ namespace EADBackEndAPI.Controllers
 
         [HttpPost]
         [Route("SaveFuelStock")]
-        public async Task<IActionResult> Post([FromBody] FuelStockModel fuelStockModel)
+        public async Task<IActionResult> SaveFuelStock([FromBody] FuelStockModel fuelStockModel)
         {
             await fuelStockService.CreateAsync(fuelStockModel);
             return CreatedAtAction(nameof(Get), new { id = fuelStockModel.FuelStockId }, fuelStockModel);
+        }
+
+        [HttpPost]
+        [Route("UpdateFuelStock")] 
+        public async Task<IActionResult> UpdateFuelStock(FuelStockUpdateModel fuelStockUpdateModel)
+        {
+            await fuelStockService.UpdateAsync(fuelStockUpdateModel);
+            return Ok();
         }
     }
 }

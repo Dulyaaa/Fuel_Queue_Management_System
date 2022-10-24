@@ -32,5 +32,17 @@ namespace EADBackEndAPI.Services
             await _UserCollection.InsertOneAsync(userlist);
             return;
         }
+
+       /* public async Task UserLogin()
+        {
+          *//*  if()*//*
+        }*/
+        public async Task<UserModel> GetUserByName(string username)
+        {
+            var usersawait= await _UserCollection.Find(new BsonDocument()).ToListAsync();
+            var user = usersawait.Where(x=>x.UserName == username).FirstOrDefault();
+            return user;
+        }
+
     }
 }

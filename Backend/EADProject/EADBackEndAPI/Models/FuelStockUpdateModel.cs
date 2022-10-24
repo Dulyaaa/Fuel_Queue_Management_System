@@ -1,18 +1,13 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EADBackEndAPI.Models
 {
-    public class FuelStockModel
+    public class FuelStockUpdateModel
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string FuelStockId { get; set; }
-        public string ShedId { get; set; }
         public FuelType Fuel { get; set; }
         public string ArrivalTime { get; set; }
         public string FinishTime { get; set; }

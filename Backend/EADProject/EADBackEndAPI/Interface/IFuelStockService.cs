@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EADBackEndAPI.Interface
 {
-    interface IFuelStockService
+    public interface IFuelStockService
     {
     }
 }
