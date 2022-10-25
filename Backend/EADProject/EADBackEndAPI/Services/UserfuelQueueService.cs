@@ -22,7 +22,7 @@ namespace EADBackEndAPI.Services
         }
 
         public async Task<List<UserfuelQueueModel>> GetAsync()
-        {
+        {       
             return await _UserQueueCollection.Find(new BsonDocument()).ToListAsync();
         }
 
@@ -40,6 +40,13 @@ namespace EADBackEndAPI.Services
                                                                                              .Set(x => x.Status, userFuelQUpdateModel.Status);
             await _UserQueueCollection.UpdateManyAsync(filter, update);
             return;
+        }
+
+        public async Task<UserfuelQueueModel> GetVehicleCount()
+        {
+            var usersawait = await _UserQueueCollection.Find(new BsonDocument()).ToListAsync();
+            var user = usersawait.Where(x => x.Status == "InQueue").FirstOrDefault();
+            return user;
         }
     }
 }

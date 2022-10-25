@@ -60,7 +60,7 @@ namespace EADBackEndAPI.Controllers
                     return await shedService.DetailsbyID(shedId);
                 }*/
 
-/*        [HttpGet]
+/*       [HttpGet]
         [Route("getByName")]
         public async Task<IActionResult> GetByName(string city)
         {

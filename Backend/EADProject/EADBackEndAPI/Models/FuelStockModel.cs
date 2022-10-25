@@ -13,8 +13,9 @@ namespace EADBackEndAPI.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string FuelStockId { get; set; }
         public string ShedId { get; set; }
-        public FuelType Fuel { get; set; }
+        public string FuelType { get; set; }
         public string ArrivalTime { get; set; }
         public string FinishTime { get; set; }
+        public string Status { get; set; }
     }
 }
