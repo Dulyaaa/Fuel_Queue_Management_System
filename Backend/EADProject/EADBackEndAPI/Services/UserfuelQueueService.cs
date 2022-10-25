@@ -42,11 +42,14 @@ namespace EADBackEndAPI.Services
             return;
         }
 
-        public async Task<UserfuelQueueModel> GetVehicleCount()
+        public async Task<int> GetVehicleCount()
         {
             var vehicleawait = await _UserQueueCollection.Find(new BsonDocument()).ToListAsync();
-            var status = vehicleawait.Where(x => x.Status == "InQueue").FirstOrDefault();
-            return status;
+            var status = vehicleawait.Where(x => x.Status == "InQueue");
+            var QueueLength = status.Count();
+
+            return QueueLength;
         }
+
     }
 }

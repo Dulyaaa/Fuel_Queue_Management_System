@@ -32,11 +32,11 @@ namespace EADBackEndAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = userModel.UserId }, userModel);
         }
 
-   /*     [HttpGet]
+        [HttpGet]
         [Route("GetUserByName")]
-        public async Task<List<UserModel>> GetUserByName(string username)
+        public async Task<UserModel> GetUserByName(string username)
         {
-            return await userService.GetUserByName();
-        }*/
+            return await userService.GetUserByName(username);
+        }
     }
 }

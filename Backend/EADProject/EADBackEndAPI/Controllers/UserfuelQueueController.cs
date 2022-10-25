@@ -39,5 +39,12 @@ namespace EADBackEndAPI.Controllers
             await userfuelQueueService.UpdateAsync(userFuelQUpdateModel);
             return Ok();
         }
+
+        [HttpGet]
+        [Route("GetVehicleCount")]
+        public async Task<int> GetVehicleCount()
+        {
+            return await userfuelQueueService.GetVehicleCount();
+        }
     }
 }
