@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="fill_parent"-->
+    <!--        android:layout_height="fill_parent"-->
+    <!--        android:padding="10dp">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/nameLabel"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Animal : " />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/name"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_toEndOf="@+id/nameLabel" />-->
+
+    <!--    </RelativeLayout>-->
+
+    <!--    <LinearLayout-->
+    <!--        android:orientation="horizontal"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:id="@+id/linearLayout"-->
+    <!--        android:layout_margin="15sp">-->
+
+    <!--        <TextView-->
+    <!--            android:text = "Left Side"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight = "1"-->
+    <!--            android:id = "@+id/txtLeft"/>-->
+
+    <!--        <TextView-->
+    <!--            android:text = ":"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight = "1.5"-->
+    <!--            android:id = "@+id/txtMiddle"/>-->
+
+    <!--        <TextView-->
+
+    <!--            android:text = "Right Side"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_weight = "1" />-->
+    <!--    </LinearLayout>-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/details_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="5sp"
+        app:cardMaxElevation="10sp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5sp"
+            android:padding="5sp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--            <TextView-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="match_parent"-->
+                <!--                android:layout_weight="1"-->
+                <!--                android:text="@string/fuel_station_name" />-->
+
+                <!--            <TextView-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="match_parent"-->
+                <!--                android:layout_weight="0.1"-->
+                <!--                android:text="@string/split" />-->
+
+                <TextView
+                    android:id="@+id/txtStationName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1"
+                    android:text="Perera Filling Station"
+                    android:drawableLeft="@drawable/gas_station"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_margin="5sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:drawableLeft="@drawable/location"-->
+<!--                    android:text="@string/fuel_station_city"-->
+<!--                    android:textSize="16sp" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_margin="5sp"-->
+<!--                    android:layout_weight="0.1"-->
+<!--                    android:text="@string/split"-->
+<!--                    android:textSize="16sp" />-->
+
+                <TextView
+                    android:id="@+id/txtStationCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/location"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1"
+                    android:text="Borella"
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/car"
+                    android:text="Current Vehicle Count"
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:layout_weight="0.1"
+                    android:text="@string/split"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtQueueLength"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1"
+                    android:text="15"
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/gas"
+                    android:text="@string/average_time_to_fill_up"
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:layout_weight="0.1"
+                    android:text="@string/split"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtAvgTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1"
+                    android:text="12 min"
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+<!--            <TableRow-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="fill_parent">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_margin="5sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Left Side"-->
+<!--                    android:textSize="16sp" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_margin="5sp"-->
+<!--                    android:layout_weight="0.1"-->
+<!--                    android:text="@string/split"-->
+<!--                    android:textSize="16sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/txt"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_margin="5sp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Right Side"-->
+<!--                    android:textSize="16sp" />-->
+<!--            </TableRow>-->
+        </TableLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
