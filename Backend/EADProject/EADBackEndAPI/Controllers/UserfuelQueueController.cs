@@ -31,5 +31,13 @@ namespace EADBackEndAPI.Controllers
             await userfuelQueueService.CreateAsync(userfuelQueueModel);
             return CreatedAtAction(nameof(Get), new { id = userfuelQueueModel.QueueId }, userfuelQueueModel);
         }
+
+        [HttpPost]
+        [Route("UpdateUserFuelQueue")]
+        public async Task<IActionResult> UpdateUserFuelQueue(UserFuelQUpdateModel userFuelQUpdateModel)
+        {
+            await userfuelQueueService.UpdateAsync(userFuelQUpdateModel);
+            return Ok();
+        }
     }
 }

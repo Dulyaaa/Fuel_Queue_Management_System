@@ -31,10 +31,10 @@ namespace EADBackEndAPI.Services
             await _playlistCollection.InsertOneAsync(playlist);
             return;
         }
-        public async Task AddToPlaylistAsync(string id, string movieId)
+        public async Task UpdateAsync(ShedSample shedSample)
         {
-            FilterDefinition<ShedDetailsModel> filter = Builders<ShedDetailsModel>.Filter.Eq("Id", id);
-            UpdateDefinition<ShedDetailsModel> update = Builders<ShedDetailsModel>.Update.AddToSet<string>("movieIds", movieId);
+            FilterDefinition<ShedDetailsModel> filter = Builders<ShedDetailsModel>.Filter.Eq(x => x.Id, shedSample.ShedId);
+            UpdateDefinition<ShedDetailsModel> update = Builders<ShedDetailsModel>.Update.Set(x => x.City, shedSample.City);
             await _playlistCollection.UpdateOneAsync(filter, update);
             return;
         }
@@ -45,5 +45,10 @@ namespace EADBackEndAPI.Services
             return;
 
         }
+
+/*        public async Task<List<ShedDetailsModel>> DetailsbyID(string shedId)
+        {
+            return await _playlistCollection.Find(new BsonDocument()).ToListAsync();
+        }*/
     }
 }

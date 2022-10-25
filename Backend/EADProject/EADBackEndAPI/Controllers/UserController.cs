@@ -31,5 +31,12 @@ namespace EADBackEndAPI.Controllers
             await userService.CreateAsync(userModel);
             return CreatedAtAction(nameof(Get), new { id = userModel.UserId }, userModel);
         }
+
+   /*     [HttpGet]
+        [Route("GetUserByName")]
+        public async Task<List<UserModel>> GetUserByName(string username)
+        {
+            return await userService.GetUserByName();
+        }*/
     }
 }
