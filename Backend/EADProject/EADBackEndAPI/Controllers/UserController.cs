@@ -17,6 +17,7 @@ namespace EADBackEndAPI.Controllers
             this.userService = userService;
         }
 
+        //API for get all users in DB
         [HttpGet]
         [Route("GetAllUser")]
         public async Task<List<UserModel>> Get()
@@ -24,6 +25,7 @@ namespace EADBackEndAPI.Controllers
             return await userService.GetAsync();
         }
 
+        //API for create new user
         [HttpPost]
         [Route("SaveUser")]
         public async Task<IActionResult> Post([FromBody] UserModel userModel)
@@ -32,6 +34,7 @@ namespace EADBackEndAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = userModel.UserId }, userModel);
         }
 
+        //API for get the user details by name and password
         [HttpGet]
         [Route("GetUserByName")]
         public async Task<UserModel> GetUserByName(string username)

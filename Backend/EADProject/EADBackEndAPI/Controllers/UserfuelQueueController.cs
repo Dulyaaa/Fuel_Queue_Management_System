@@ -17,6 +17,7 @@ namespace EADBackEndAPI.Controllers
             this.userfuelQueueService = userfuelQueueService;
         }
 
+        //API for get all user queue details in DB
         [HttpGet]
         [Route("GetAllUserQueue")]
         public async Task<List<UserfuelQueueModel>> Get()
@@ -24,6 +25,7 @@ namespace EADBackEndAPI.Controllers
             return await userfuelQueueService.GetAsync();
         }
 
+        //API for create new user queue
         [HttpPost]
         [Route("SaveUserQueue")]
         public async Task<IActionResult> Post([FromBody] UserfuelQueueModel userfuelQueueModel)
@@ -32,6 +34,7 @@ namespace EADBackEndAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = userfuelQueueModel.QueueId }, userfuelQueueModel);
         }
 
+        //API for update user queue details
         [HttpPost]
         [Route("UpdateUserFuelQueue")]
         public async Task<IActionResult> UpdateUserFuelQueue(UserFuelQUpdateModel userFuelQUpdateModel)
@@ -40,6 +43,7 @@ namespace EADBackEndAPI.Controllers
             return Ok();
         }
 
+        //API for get the total vehicle count in a queue
         [HttpGet]
         [Route("GetVehicleCount")]
         public async Task<int> GetVehicleCount()

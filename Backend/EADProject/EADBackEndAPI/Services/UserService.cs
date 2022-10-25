@@ -17,9 +17,9 @@ namespace EADBackEndAPI.Services
         private readonly IMongoCollection<UserModel> _UserCollection;
         public UserService(IOptions<MongoDBSettings> mongoDBSettings)
         {
-            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
+            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);//connect to and communicate with MongoDB
             IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-            _UserCollection = database.GetCollection<UserModel>("User");
+            _UserCollection = database.GetCollection<UserModel>("User"); // Create MongoDB Collection name
         }
 
         public async Task<List<UserModel>> GetAsync()
@@ -33,10 +33,6 @@ namespace EADBackEndAPI.Services
             return;
         }
 
-       /* public async Task UserLogin()
-        {
-          *//*  if()*//*
-        }*/
         public async Task<UserModel> GetUserByName(string username)
         {
             var usersawait= await _UserCollection.Find(new BsonDocument()).ToListAsync();

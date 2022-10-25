@@ -53,33 +53,5 @@ namespace EADBackEndAPI.Controllers
             return Ok();
         }
 
-        /*      [HttpGet]
-                [Route("GetDetailsbyID")]
-                public async Task<IActionResult> GetDetailsbyID(string shedId)
-                {
-                    return await shedService.DetailsbyID(shedId);
-                }*/
-
-/*       [HttpGet]
-        [Route("getByName")]
-        public async Task<IActionResult> GetByName(string city)
-        {
-            try
-            {
-                var product = await shedService.GetByName(city);
-                if (product == null)
-                {
-                    return Json("No product found!");
-                }
-                return Json(product);
-            }
-            catch (Exception ex)
-            {
-                return Json(ex.ToString());
-
-            }
-
-        }*/
-
     }
 }
