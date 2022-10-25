@@ -37,7 +37,8 @@ namespace EADBackEndAPI.Services
             FilterDefinition<FuelStockModel> filter = Builders<FuelStockModel>.Filter.Eq(x => x.FuelStockId, fuelStockUpdateModel.FuelStockId);
             UpdateDefinition<FuelStockModel> update = Builders<FuelStockModel>.Update.Set(x => x.ArrivalTime, fuelStockUpdateModel.ArrivalTime)
                                                                                              .Set(x => x.FinishTime, fuelStockUpdateModel.FinishTime)
-                                                                                             .Set(x => x.FuelType, fuelStockUpdateModel.FuelType);
+                                                                                             .Set(x => x.FuelType, fuelStockUpdateModel.FuelType)
+                                                                                             .Set(x => x.Stock, fuelStockUpdateModel.Stock);
             await _FuelStockCollection.UpdateManyAsync(filter, update);
             return;
         }
