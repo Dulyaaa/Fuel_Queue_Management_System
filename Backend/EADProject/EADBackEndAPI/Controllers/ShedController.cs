@@ -15,11 +15,13 @@ namespace EADBackEndAPI.Controllers
     {
         private readonly ShedService shedService;
 
+        //initating srvice through constructor
         public ShedController(ShedService shedService)
         {
             this.shedService = shedService;
         }
 
+        //API for Get all Shed Details
         [HttpGet]
         [Route("GetAll")]
         public async Task<List<ShedDetailsModel>> Get()
@@ -27,6 +29,7 @@ namespace EADBackEndAPI.Controllers
             return await shedService.GetAsync();
         }
 
+        //API for create new Shed Details
         [HttpPost]
         [Route("Save")]
         public async Task<IActionResult> Post([FromBody] ShedDetailsModel playlist)
@@ -35,7 +38,7 @@ namespace EADBackEndAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = playlist.Id }, playlist);
         }
 
-      
+        //API for delete sheds
         [HttpDelete]
         [Route("Delete")]
         public async Task<IActionResult> Delete(string id)
@@ -45,6 +48,7 @@ namespace EADBackEndAPI.Controllers
         }
 
 
+        //API for update Shed Details
         [HttpPost]
         [Route("Update")]
         public async Task<IActionResult> Update(ShedSample shedSample)

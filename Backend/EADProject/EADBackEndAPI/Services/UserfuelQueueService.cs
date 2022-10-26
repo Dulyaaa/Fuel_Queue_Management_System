@@ -16,22 +16,25 @@ namespace EADBackEndAPI.Services
         private readonly IMongoCollection<UserfuelQueueModel> _UserQueueCollection;
         public UserfuelQueueService(IOptions<MongoDBSettings> mongoDBSettings)
         {
-            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
+            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);//connect to and communicate with MongoDB
             IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-            _UserQueueCollection = database.GetCollection<UserfuelQueueModel>("UserfuelQueue");
+            _UserQueueCollection = database.GetCollection<UserfuelQueueModel>("UserfuelQueue");// Create MongoDB Collection name
         }
 
+        //Get all fuel queue details
         public async Task<List<UserfuelQueueModel>> GetAsync()
         {       
             return await _UserQueueCollection.Find(new BsonDocument()).ToListAsync();
         }
 
+        //Save new fuel queue details
         public async Task CreateAsync(UserfuelQueueModel userfuelQueueModel)
         {
             await _UserQueueCollection.InsertOneAsync(userfuelQueueModel);
             return;
         }
 
+        //Upadte user fuel queue details
         public async Task UpdateAsync(UserFuelQUpdateModel userFuelQUpdateModel)
         {
             FilterDefinition<UserfuelQueueModel> filter = Builders<UserfuelQueueModel>.Filter.Eq(x => x.QueueId, userFuelQUpdateModel.QueueId);
@@ -42,6 +45,7 @@ namespace EADBackEndAPI.Services
             return;
         }
 
+        //Get the queue length by using in queue user count
         public async Task<int> GetVehicleCount()
         {
             var vehicleawait = await _UserQueueCollection.Find(new BsonDocument()).ToListAsync();

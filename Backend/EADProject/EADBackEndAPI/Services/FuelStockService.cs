@@ -21,11 +21,13 @@ namespace EADBackEndAPI.Services
             _FuelStockCollection = database.GetCollection<FuelStockModel>("FuelStock");// Create MongoDB Collection name
         }
 
+        //Service for fetch data for get all stock details
         public async Task<List<FuelStockModel>> GetAsync()
         {
             return await _FuelStockCollection.Find(new BsonDocument()).ToListAsync();
         }
 
+        //save fuel stock details
         public async Task CreateAsync(FuelStockModel fuelStockModel)
         {
             await _FuelStockCollection.InsertOneAsync(fuelStockModel);

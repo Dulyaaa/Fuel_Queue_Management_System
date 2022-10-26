@@ -16,21 +16,25 @@ namespace EADBackEndAPI.Services
         private readonly IMongoCollection<ShedDetailsModel> _playlistCollection;
         public ShedService(IOptions<MongoDBSettings> mongoDBSettings)
         {
-            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
+            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);//connect to and communicate with MongoDB
             IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-            _playlistCollection = database.GetCollection<ShedDetailsModel>("Shed");
+            _playlistCollection = database.GetCollection<ShedDetailsModel>("Shed");// Create MongoDB Collection name
         }
 
+        //Get all details of station
         public async Task<List<ShedDetailsModel>> GetAsync()
         {
             return await _playlistCollection.Find(new BsonDocument()).ToListAsync();
         }
 
+        //save new station details
         public async Task CreateAsync(ShedDetailsModel playlist)
         {
             await _playlistCollection.InsertOneAsync(playlist);
             return;
         }
+
+        //update station details
         public async Task UpdateAsync(ShedSample shedSample)
         {
             FilterDefinition<ShedDetailsModel> filter = Builders<ShedDetailsModel>.Filter.Eq(x => x.Id, shedSample.ShedId);
@@ -46,9 +50,5 @@ namespace EADBackEndAPI.Services
 
         }
 
-/*        public async Task<List<ShedDetailsModel>> DetailsbyID(string shedId)
-        {
-            return await _playlistCollection.Find(new BsonDocument()).ToListAsync();
-        }*/
     }
 }

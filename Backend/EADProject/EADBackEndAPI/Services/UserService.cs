@@ -22,17 +22,20 @@ namespace EADBackEndAPI.Services
             _UserCollection = database.GetCollection<UserModel>("User"); // Create MongoDB Collection name
         }
 
+        //Get all user Details
         public async Task<List<UserModel>> GetAsync()
         {
             return await _UserCollection.Find(new BsonDocument()).ToListAsync();
         }
 
+        //Create a new user
         public async Task CreateAsync(UserModel userlist)
         {
             await _UserCollection.InsertOneAsync(userlist);
             return;
         }
 
+        //Login
         public async Task<UserModel> GetUserByName(string username)
         {
             var usersawait= await _UserCollection.Find(new BsonDocument()).ToListAsync();

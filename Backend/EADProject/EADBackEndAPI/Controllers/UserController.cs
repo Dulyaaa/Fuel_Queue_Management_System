@@ -12,6 +12,7 @@ namespace EADBackEndAPI.Controllers
     {
         private readonly UserService userService;
 
+        //initating srvice through constructor
         public UserController(UserService userService)
         {
             this.userService = userService;
