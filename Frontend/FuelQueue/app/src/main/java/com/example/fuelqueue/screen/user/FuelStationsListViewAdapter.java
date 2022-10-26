@@ -9,21 +9,30 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.fuelqueue.R;
-import com.example.fuelqueue.correct.model.FuelStation;
+import com.example.fuelqueue.model.FuelStation;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Fuel station list item view adapter
+ */
 public class FuelStationsListViewAdapter extends BaseAdapter {
-
-    // Declare Variables
+    /* Variables declaration */
     private final Context mContext;
     private final LayoutInflater inflater;
+    /* Fuel Station related variables declaration */
     private final List<FuelStation> fuelStationsList;
     private final ArrayList<FuelStation> arraylist;
 
-    public FuelStationsListViewAdapter(Context context, List<FuelStation> fuelStationsList){
+    /**
+     * Constructor
+     *
+     * @param context          context
+     * @param fuelStationsList FuelStation object
+     */
+    public FuelStationsListViewAdapter(Context context, List<FuelStation> fuelStationsList) {
         this.mContext = context;
         this.fuelStationsList = fuelStationsList;
         this.inflater = LayoutInflater.from(mContext);
@@ -31,65 +40,66 @@ public class FuelStationsListViewAdapter extends BaseAdapter {
         this.arraylist.addAll(fuelStationsList);
     }
 
-    public static class ViewHolder {
-        TextView name;
-    }
-
+    /**
+     * Count items in list
+     *
+     * @return count
+     */
     @Override
     public int getCount() {
         return fuelStationsList.size();
     }
 
+    /**
+     * Get items for view
+     *
+     * @param position position
+     * @return FuelStation object
+     */
     @Override
     public FuelStation getItem(int position) {
         return fuelStationsList.get(position);
     }
 
+    /**
+     * Get item id
+     *
+     * @param position position
+     * @return long
+     */
     @Override
     public long getItemId(int position) {
         return position;
     }
 
+    /**
+     * Bind the list into view
+     *
+     * @param position position
+     * @param view     view
+     * @param parent   parent
+     * @return View object
+     */
     public View getView(final int position, View view, ViewGroup parent) {
-
+        /* Create view layout */
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.fuel_stations_list_view_items, parent, false);
-
-//        TextView txtUsername = rowView.findViewById(R.id.name);
-
+        /* Locate UI in xml */
         TextView txtStationName = rowView.findViewById(R.id.txtStationName);
         TextView txtStationCity = rowView.findViewById(R.id.txtStationCity);
         TextView txtQueueLength = rowView.findViewById(R.id.txtQueueLength);
         TextView txtAvgTime = rowView.findViewById(R.id.txtAvgTime);
-
+        /* Set the values to UI */
         txtStationName.setText(String.format("%s", fuelStationsList.get(position).getStationName()));
         txtStationCity.setText(String.format("%s", fuelStationsList.get(position).getCity()));
 //        txtQueueLength.setText(Integer.parseInt("%d", fuelStationsList.get(position).getQueueLength()));
-        txtQueueLength.setText(String.valueOf( fuelStationsList.get(position).getQueueLength()));
-        txtAvgTime.setText(String.format("%s", fuelStationsList.get(position).getAvgTime()));
-
-//        txtUserId.setText(String.format("#ID: %s", fuelQueueList.get(pos).getId()));
-//        txtUsername.setText(String.format("USER NAME: %s", fuelQueueList.get(pos).getName()));
-
-
-//        txtUsername.setText(String.format("USER NAME: %s", fuelStationsList.get(position).getStationName()));
-
-//        final ViewHolder holder;
-//        if (view == null) {
-//            holder = new ViewHolder();
-//            view = inflater.inflate(R.layout.fuel_stations_list_view_items, null);
-//            // Locate the TextViews in listview_item.xml
-//            holder.name = view.findViewById(R.id.name);
-//            view.setTag(holder);
-//        } else {
-//            holder = (ViewHolder) view.getTag();
-//        }
-//        // Set the results into TextViews
-//        holder.name.setText(fuelStationsList.get(position).getStationName());
-
-
+//        txtQueueLength.setText(String.valueOf(fuelStationsList.get(position).getQueueLength()));
+        txtQueueLength.setText("6");
+//        txtAvgTime.setText(String.format("%s", fuelStationsList.get(position).getAvgTime()));
+        txtAvgTime.setText("10 min");
+        /* Click on card view method */
         rowView.setOnClickListener(v -> {
-            //start Activity User Form
+            /* Pass data to next screen */
             Intent intent = new Intent(mContext, FuelDetailsActivity.class);
             intent.putExtra("station_id", fuelStationsList.get(position).getId());
             intent.putExtra("station_name", fuelStationsList.get(position).getStationName());
@@ -98,18 +108,22 @@ public class FuelStationsListViewAdapter extends BaseAdapter {
             intent.putExtra("avg_time", fuelStationsList.get(position).getAvgTime());
             mContext.startActivity(intent);
         });
-
         return rowView;
     }
 
+    /**
+     * Search fuel stations by city
+     *
+     * @param charText cityName
+     */
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
         fuelStationsList.clear();
-        if(charText.length() == 0) {
+        if (charText.length() == 0) {
             fuelStationsList.addAll(arraylist);
-        }else {
-            for(FuelStation fs:arraylist) {
-                if(fs.getStationName().toLowerCase(Locale.getDefault()).contains(charText)) {
+        } else {
+            for (FuelStation fs : arraylist) {
+                if (fs.getCity().toLowerCase(Locale.getDefault()).contains(charText)) {
                     fuelStationsList.add(fs);
                 }
             }

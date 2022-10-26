@@ -9,14 +9,15 @@
     <ImageView
         android:layout_width="500dp"
         android:layout_height="350dp"
-        android:src="@drawable/fuel_station"/>
+        android:src="@drawable/fuel_station"
+        android:contentDescription="@string/fuel_station" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textColor="#0d6e6a"
-        android:textSize="35dp"
+        android:textColor="@color/purple"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:letterSpacing="0.03"/>
 
@@ -26,11 +27,14 @@
         android:layout_height="45dp"
         android:background="@drawable/forget"
         android:text="Email"
-        android:textColor="#0d6e6a"
+        android:hint="Email"
+        android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="30dp"
-        android:paddingLeft="20dp"/>
+        android:paddingStart="20dp"
+        android:autofillHints="Email"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/password"
@@ -38,29 +42,32 @@
         android:layout_height="45dp"
         android:background="@drawable/forget"
         android:text="Password"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"/>
+        android:paddingStart="20dp"
+        android:inputType="textPassword"
+        android:autofillHints="No" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forget Password?"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_gravity="end"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="35dp"/>
+        android:layout_marginEnd="35dp"/>
 
     <Button
+        android:id="@+id/btn_log_in"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:background="@drawable/button"
         android:text="Login"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#FFF"
         android:layout_marginTop="20dp"/>
@@ -68,10 +75,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Sign Up"
-        android:textColor="#0d6e6a"
+        android:text="@string/don_t_have_an_account_sign_up"
+        android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="15dp"/>
 
 </LinearLayout>

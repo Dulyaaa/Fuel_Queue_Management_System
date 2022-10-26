@@ -7,18 +7,6 @@
     tools:context=".screen.station_owner.OwnerFuelTypeListActivity"
     android:layout_margin="5sp">
 
-<!--    <TextView-->
-<!--        android:id="@+id/fuelTypeDetails"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="295sp"-->
-<!--        android:layout_weight="1"-->
-<!--        android:text="Fuel Type Details"-->
-<!--        android:textColor="#333333"-->
-<!--        android:padding="10sp"-->
-<!--        android:textSize="18sp"-->
-<!--        android:textStyle="bold" />-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/details_card"
         android:layout_width="match_parent"
@@ -36,17 +24,6 @@
         app:cardMaxElevation="10sp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
-
-        <!--
-        In the above cardview widget
-        cardelevation property will give elevation to your card view
-        card corner radius will provide radius to your card view
-        card background color will give background color to your card view
-        card max elevation will give the cardview maximum elevation
-        card prevent corner overlap will add padding to CardView on v20 and before to prevent intersections between the Card content and rounded corners.
-        card use compact padding will add padding in API v21+ as well to have the same measurements with previous versions.
-        below are the two widgets imageview and text view we are displaying inside our card view.
-        -->
 
         <TableLayout
             android:layout_width="match_parent"
@@ -66,7 +43,7 @@
                     android:maxWidth="10dp"
                     android:text="Filling Station Details"
                     android:textColor="#303030"
-                    android:textSize="21sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </TableRow>
@@ -77,22 +54,24 @@
                 android:paddingBottom="6sp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/fuel_station_name"
-                    android:textSize="18sp" />
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.1"
                     android:text="@string/split"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtStationName"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:maxWidth="10dp"
@@ -108,22 +87,24 @@
                 android:paddingBottom="6sp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/fuel_station_city"
-                    android:textSize="18sp" />
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.1"
                     android:text="@string/split"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtStationCity"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:maxWidth="10dp"
@@ -139,22 +120,26 @@
                 android:paddingBottom="6sp">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/queue_length"
-                    android:textSize="18sp" />
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.1"
                     android:text="@string/split"
-                    android:textSize="18sp" />
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtQueueLength"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="15"
@@ -173,51 +158,23 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/average_time_to_fill_up"
-                    android:textSize="18sp" />
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.1"
                     android:text="@string/split"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtAvgTime"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="12 min"
-                    android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:paddingBottom="6sp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Left Side"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/split"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txt"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Right Side"
                     android:textColor="#333333"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -226,16 +183,28 @@
 
     </androidx.cardview.widget.CardView>
 
+<!--    <TextView-->
+<!--        android:id="@+id/textView4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|center_horizontal"-->
+<!--        android:layout_marginStart="28dp"-->
+<!--        android:text="Available Fuel Details"-->
+<!--        android:textColor="@color/purple"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="300dp"
-        android:text="List"
-        android:textColor="@android:color/black"
-        android:textSize="36sp"
+        android:layout_marginTop="260dp"
+        android:text="Available Fuel Types"
+        android:textColor="@color/purple"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -244,9 +213,10 @@
         android:id="@+id/listRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="7dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="320dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="1dp"
@@ -255,7 +225,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
-<!--    <android.support.design.widget.FloatingActionButton-->
+    <!--    <android.support.design.widget.FloatingActionButton-->
 <!--        android:id="@+id/fab"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

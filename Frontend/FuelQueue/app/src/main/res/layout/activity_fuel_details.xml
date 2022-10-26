@@ -11,7 +11,7 @@
         android:layout_width="404dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="#492773"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:cardMaxElevation="12dp"
@@ -36,7 +36,7 @@
                     android:layout_weight="1"
                     android:text="Perera Filling Station"
                     android:drawableRight="@drawable/gas_station"
-                    android:textColor="@color/purple"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -54,8 +54,10 @@
                     android:textAlignment="textEnd"
                     android:layout_weight="1"
                     android:text="Borella"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:drawableRight="@drawable/location"/>
 
             </TableRow>
 
@@ -131,15 +133,16 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/queue_length"
-                    android:textColor="#8c8c8c"
+                    android:textColor="@color/cream"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:drawableLeft="@drawable/queue"/>
+                    android:drawableLeft="@drawable/count"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:textColor="@color/cream"
                     android:text="@string/split"
                     android:textSize="18sp" />
 
@@ -149,7 +152,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="15"
-                    android:textColor="#333333"
+                    android:textColor="#ffff"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </TableRow>
@@ -164,7 +167,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/average_time_to_fill_up"
-                    android:textColor="#8c8c8c"
+                    android:textColor="@color/cream"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:drawableLeft="@drawable/time" />
@@ -174,6 +177,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/split"
+                    android:textColor="@color/cream"
                     android:textSize="18sp" />
 
                 <TextView
@@ -182,7 +186,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="12 min"
-                    android:textColor="#333333"
+                    android:textColor="#ffff"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </TableRow>

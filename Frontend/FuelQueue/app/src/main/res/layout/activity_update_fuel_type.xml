@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.station_owner.UpdateFuelTypeActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/details_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1sp"
+        android:layout_marginTop="1sp"
+        android:layout_marginEnd="1sp"
+        android:layout_marginBottom="1sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="#EDE7F6"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="5sp"
+        app:cardMaxElevation="10sp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="18sp"
+            android:padding="2sp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="18sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:maxWidth="10dp"
+                    android:text="Update Fuel Type"
+                    android:textColor="#303030"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="6sp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fuel"
+                    android:layout_width="326dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:textColorHint="#808080"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_image"
+                    app:layout_constraintWidth_percent="0.7">
+
+                    <EditText
+                        android:id="@+id/fuelType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:gravity="left"
+                        android:hint="Fuel Type"
+                        android:padding="30dp"
+                        android:textColor="#000000"
+                        android:textColorHint="#808080"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="6sp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/stockUp"
+                    android:layout_width="326dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:textColorHint="#808080"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_image"
+                    app:layout_constraintWidth_percent="0.7">
+
+                    <EditText
+                        android:id="@+id/txtStock"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:gravity="left"
+                        android:hint="Available Stock Quantity"
+                        android:padding="30dp"
+                        android:textColor="#000000"
+                        android:textColorHint="#808080"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="6sp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_first_name"
+                    android:layout_width="326dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:textColorHint="#808080"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_image"
+                    app:layout_constraintWidth_percent="0.7">
+
+                    <EditText
+                        android:id="@+id/et_first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:gravity="left"
+                        android:hint="Arrival Time"
+                        android:padding="30dp"
+                        android:textColor="#000000"
+                        android:textColorHint="#808080"
+                        android:textSize="15sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="6sp"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:id="@+id/availableStockUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Availability"
+                    android:textColor="#8c8c8c"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:text="@string/split"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtAvailableStock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Not Available"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="6sp"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/availableStock"
+                    android:backgroundTint="@color/lilac"
+                    android:drawableLeft="@android:drawable/stat_sys_warning"
+                    android:text=" When the stock is less than 10 litres, the pump is not available."
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+            </TableRow>
+            <Button
+                android:id="@+id/btn_log_in"
+                android:layout_width="20dp"
+                android:layout_height="50dp"
+                android:text="Update Type"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                android:layout_marginTop="20dp"/>
+        </TableLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fuelqueue.correct.db.APIUtils;
-import com.example.fuelqueue.correct.model.FuelQueue;
-import com.example.fuelqueue.correct.remote.FuelQueueService;
+import com.example.fuelqueue.db.APIUtils;
+import com.example.fuelqueue.model.FuelQueue;
+import com.example.fuelqueue.remote.FuelQueueService;
 
 import java.util.Objects;
 

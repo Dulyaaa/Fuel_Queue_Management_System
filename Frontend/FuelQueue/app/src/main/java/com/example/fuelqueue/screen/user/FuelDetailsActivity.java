@@ -1,24 +1,28 @@
 package com.example.fuelqueue.screen.user;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fuelqueue.R;
-import com.example.fuelqueue.assets.DataModel;
-import com.example.fuelqueue.assets.ItemAdapter;
-import com.example.fuelqueue.correct.db.APIUtils;
-import com.example.fuelqueue.correct.model.FuelQueue;
-import com.example.fuelqueue.correct.model.FuelStock;
-import com.example.fuelqueue.correct.remote.FuelQueueService;
-import com.example.fuelqueue.correct.remote.FuelStockService;
+import com.example.fuelqueue.db.APIUtils;
+import com.example.fuelqueue.model.FuelQueue;
+import com.example.fuelqueue.model.FuelStock;
+import com.example.fuelqueue.remote.FuelQueueService;
+import com.example.fuelqueue.remote.FuelStockService;
+import com.example.fuelqueue.screen.user.fuelType.DataModel;
+import com.example.fuelqueue.screen.user.fuelType.ItemAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -123,8 +127,8 @@ public class FuelDetailsActivity extends AppCompatActivity {
         /* set for the xml attributes */
         txtStationName.setText(station_name);
         txtStationCity.setText(station_city);
-        txtQueueLength.setText(String.valueOf(queue_length));
-        txtAvgTime.setText(avg_time);
+        txtQueueLength.setText("6");
+        txtAvgTime.setText("10 min");
         /* Other attributes setting  */
         fuelQueue.setFuelStationId(station_id);
         fuelQueue.setUserId("1234");
@@ -169,30 +173,30 @@ public class FuelDetailsActivity extends AppCompatActivity {
         /* Extracting fuel stock details for UI */
         if (item_count == 1) {
             fuelType1.add(fuelStockList.get(0));
-            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType));
+            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType, fuelStockList.get(0).status));
         } else if (item_count == 2) {
             fuelType1.add(fuelStockList.get(0));
-            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType));
+            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType, fuelStockList.get(1).status));
             fuelType2.add(fuelStockList.get(1));
-            fuelTxt.add(new DataModel(fuelType2, fuelStockList.get(1).fuelType));
+            fuelTxt.add(new DataModel(fuelType2, fuelStockList.get(1).fuelType, fuelStockList.get(1).status));
         } else if (item_count == 3) {
             fuelType1.add(fuelStockList.get(0));
-            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType));
+            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType, fuelStockList.get(0).status));
             fuelType2.add(fuelStockList.get(1));
-            fuelTxt.add(new DataModel(fuelType2, fuelStockList.get(1).fuelType));
+            fuelTxt.add(new DataModel(fuelType2, fuelStockList.get(1).fuelType, fuelStockList.get(1).status));
             fuelType3.add(fuelStockList.get(2));
-            fuelTxt.add(new DataModel(fuelType3, fuelStockList.get(2).fuelType));
+            fuelTxt.add(new DataModel(fuelType3, fuelStockList.get(2).fuelType, fuelStockList.get(2).status));
         } else if (item_count == 4) {
             fuelType1.add(fuelStockList.get(0));
-            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType));
+            fuelTxt.add(new DataModel(fuelType1, fuelStockList.get(0).fuelType, fuelStockList.get(0).status));
             fuelType2.add(fuelStockList.get(1));
-            fuelTxt.add(new DataModel(fuelType2, fuelStockList.get(1).fuelType));
+            fuelTxt.add(new DataModel(fuelType2, fuelStockList.get(1).fuelType, fuelStockList.get(1).status));
             fuelType3.add(fuelStockList.get(2));
-            fuelTxt.add(new DataModel(fuelType3, fuelStockList.get(2).fuelType));
+            fuelTxt.add(new DataModel(fuelType3, fuelStockList.get(2).fuelType, fuelStockList.get(2).status));
             fuelType4.add(fuelStockList.get(3));
-            fuelTxt.add(new DataModel(fuelType4, fuelStockList.get(3).fuelType));
+            fuelTxt.add(new DataModel(fuelType4, fuelStockList.get(3).fuelType, fuelStockList.get(3).status));
         } else {
-            fuelTxt.add(new DataModel(null, "No FuelType To Display"));
+            fuelTxt.add(new DataModel(null, "No FuelType To Display", ""));
         }
         /* Initiate the RecycleView UI */
         recyclerView.setHasFixedSize(true);
@@ -228,7 +232,8 @@ public class FuelDetailsActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     fuelQueueDetails = response.body();
                     Log.e("fuelQueueDetails: ", String.valueOf(fuelQueueDetails));
-                    Toast.makeText(FuelDetailsActivity.this, "Joined to the queue successfully!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(FuelDetailsActivity.this, "Joined to the queue successfully!", Toast.LENGTH_SHORT).show();
+                    showAlertDialog(R.layout.dialog_alert_join);
                     /* Disable clickable of join button */
                     btnJoin.setEnabled(false);
                 }
@@ -261,10 +266,13 @@ public class FuelDetailsActivity extends AppCompatActivity {
                     Log.e("fuelQueueDetails: ", String.valueOf(fuelQueueDetails));
                     Toast.makeText(FuelDetailsActivity.this, "Queue details updated successfully!", Toast.LENGTH_LONG).show();
                     /* Disable the clickable of button */
-                    if (btnType.equals("exit"))
+                    if (btnType.equals("exit")) {
+                        showAlertDialog(R.layout.dialog_alert_exit);
                         btnExit.setEnabled(false);
-                    else
+                    } else {
+                        showAlertDialog(R.layout.dialog_alert_filled);
                         btnFilled.setEnabled(false);
+                    }
                 }
             }
 
@@ -275,113 +283,20 @@ public class FuelDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Display the alert dialog box
+     *
+     * @param layout alertdialog
+     */
+    private void showAlertDialog(int layout) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(FuelDetailsActivity.this);
+        View layoutView = getLayoutInflater().inflate(layout, null);
+        Button dialogButton = layoutView.findViewById(R.id.btnDialog);
+        dialogBuilder.setView(layoutView);
+        AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+        dialogButton.setOnClickListener(view -> alertDialog.dismiss());
+    }
 }
-
-
-//        List<DataModel> mList = new ArrayList<>();
-//
-//        //list1
-//        List<String> nestedList1 = new ArrayList<>();
-//        nestedList1.add("Jams and Honey");
-//        nestedList1.add("Pickles and Chutneys");
-//
-//        List<String> nestedList2 = new ArrayList<>();
-//        nestedList2.add("Book");
-//        nestedList2.add("Pen");
-//        nestedList2.add("Office Chair");
-//        nestedList2.add("Pencil");
-//
-//        List<String> nestedList3 = new ArrayList<>();
-//        nestedList3.add("Decorates");
-//        nestedList3.add("Tea Table");
-//        nestedList3.add("Wall Paint");
-//
-//        List<String> nestedList4 = new ArrayList<>();
-//        nestedList4.add("Pasta");
-//        nestedList4.add("Spices");
-//        nestedList4.add("Salt");
-//
-//        mList.add(new DataModel(nestedList1 , "Instant Food and Noodles"));
-//        mList.add(new DataModel(nestedList2,"Stationary"));
-//        mList.add(new DataModel(nestedList3,"Home Care"));
-//        mList.add(new DataModel(nestedList4 ,"Grocery & Staples"));
-
-/* ===============================================*/
-
-//        String fuelName0 = fuelStockList.get(0).fuelType;
-//        String fuelStock0 = fuelStockList.get(0).stock;
-//        String fuelArrivalTime0 = fuelStockList.get(0).arrivalTime;
-//        String fuelFinishTime0 = fuelStockList.get(0).finishTime;
-//        fuelType1.add(fuelStock0);
-//        fuelType1.add(fuelStockList.get(0));
-//        fuelType1.add(String.valueOf(fuelArrivalTime0));
-//        fuelType1.add(fuelFinishTime0);
-
-//        String fuelName1 = fuelStockList.get(1).fuelType;
-//        String fuelStock1 = fuelStockList.get(1).stock;
-//        String fuelArrivalTime1 = fuelStockList.get(1).arrivalTime;
-//        String fuelFinishTime1 = fuelStockList.get(1).finishTime;
-//        fuelType2.add(fuelStock1);
-//        fuelType2.add(fuelStockList.get(1));
-//        fuelType2.add(String.valueOf(fuelArrivalTime1));
-//        fuelType2.add(fuelFinishTime1);
-
-//        String fuelName2 = fuelStockList.get(0).fuelType;
-//        String fuelStock2 = fuelStockList.get(0).stock;
-//        String fuelArrivalTime2 = fuelStockList.get(0).arrivalTime;
-//        String fuelFinishTime2 = fuelStockList.get(0).finishTime;
-//        fuelType3.add(fuelStock2);
-//        fuelType3.add(fuelStockList.get(2));
-//        fuelType3.add(String.valueOf(fuelArrivalTime2));
-//        fuelType3.add(fuelFinishTime2);
-
-//        String fuelName3 = fuelStockList.get(0).fuelType;
-//        String fuelStock3 = fuelStockList.get(0).stock;
-//        String fuelArrivalTime3 = fuelStockList.get(0).arrivalTime;
-//        String fuelFinishTime3 = fuelStockList.get(0).finishTime;
-//        fuelType4.add(fuelStock3);
-//        fuelType4.add(fuelStockList.get(3));
-//        fuelType4.add(String.valueOf(fuelArrivalTime3));
-//        fuelType4.add(fuelFinishTime3);
-
-//        fuelTxt.add(new DataModel(fuelType1 , fuelStockList.get(0).fuelType));
-//        fuelTxt.add(new DataModel(fuelType2 , fuelStockList.get(1).fuelType));
-//        fuelTxt.add(new DataModel(fuelType3 , fuelStockList.get(2).fuelType));
-//        fuelTxt.add(new DataModel(fuelType4 , fuelStockList.get(3).fuelType));
-
-/* ===============================================*/
-//    public void addUser(User u){
-//        Call<User> call = userService.addUser(u);
-//        call.enqueue(new Callback<User>() {
-//            @Override
-//            public void onResponse(Call<User> call, Response<User> response) {
-//                if(response.isSuccessful()){
-//                    Toast.makeText(UserActivity.this, "User created successfully!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<User> call, Throwable t) {
-//                Log.e("ERROR: ", t.getMessage());
-//            }
-//        });
-//    }
-
-
-/* ===============================================*/
-//        public void updateUser(int id, User u){
-//            Call<User> call = userService.updateUser(id, u);
-//            call.enqueue(new Callback<User>() {
-//                @Override
-//                public void onResponse(Call<User> call, Response<User> response) {
-//                    if(response.isSuccessful()){
-//                        Toast.makeText(UserActivity.this, "User updated successfully!", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//
-//                @Override
-//                public void onFailure(Call<User> call, Throwable t) {
-//                    Log.e("ERROR: ", t.getMessage());
-//                }
-//            });
-//        }

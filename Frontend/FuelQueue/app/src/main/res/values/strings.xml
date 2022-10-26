@@ -1,3 +1,18 @@
 <resources>
+    <!--    Common-->
     <string name="app_name">FuelQueue</string>
+    <string name="hello_world">Hello World</string>
+    <string name="fetch_users">Fetch users</string>
+    <string name="add_user">Add User</string>
+    <string name="delete_user">Delete User</string>
+    <!--    Log In & Register Screen-->
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="fuel_station">fuel_station</string>
+    <!--    Fuel Stations List Screen-->
+    <string name="fuel_station_name">Fuel Station Name</string>
+    <string name="split">:</string>
+    <string name="fuel_station_city">Fuel Station City</string>
+    <string name="queue_length"> Current vehicle count</string>
+    <string name="average_time_to_fill_up"> Average filling up time</string>
+    <string name="title_activity_add_new_fuel_type">Add New Fuel Type</string>
 </resources>

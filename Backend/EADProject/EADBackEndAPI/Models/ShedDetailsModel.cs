@@ -11,5 +11,7 @@ namespace EADBackEndAPI.Models
         public string Id { get; set; }
         public string City { get; set; }
         public string ShedName { get; set; }
+        public string AvgTime { get; set; }
+        public string QueueLength { get; set; }
     }
 }
