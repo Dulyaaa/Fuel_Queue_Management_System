@@ -16,22 +16,25 @@ namespace EADBackEndAPI.Services
         private readonly IMongoCollection<FuelStockModel> _FuelStockCollection;
         public FuelStockService(IOptions<MongoDBSettings> mongoDBSettings)
         {
-            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
+            MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);//connect to and communicate with MongoDB
             IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
-            _FuelStockCollection = database.GetCollection<FuelStockModel>("FuelStock");
+            _FuelStockCollection = database.GetCollection<FuelStockModel>("FuelStock");// Create MongoDB Collection name
         }
 
+        //Service for fetch data for get all stock details
         public async Task<List<FuelStockModel>> GetAsync()
         {
             return await _FuelStockCollection.Find(new BsonDocument()).ToListAsync();
         }
 
+        //save fuel stock details
         public async Task CreateAsync(FuelStockModel fuelStockModel)
         {
             await _FuelStockCollection.InsertOneAsync(fuelStockModel);
             return;
         }
 
+        //Service method for update fuel stock details
         public async Task UpdateAsync(FuelStockUpdateModel fuelStockUpdateModel)
         {
             FilterDefinition<FuelStockModel> filter = Builders<FuelStockModel>.Filter.Eq(x => x.FuelStockId, fuelStockUpdateModel.FuelStockId);

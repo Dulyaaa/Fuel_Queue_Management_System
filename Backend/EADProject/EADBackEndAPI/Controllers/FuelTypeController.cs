@@ -12,6 +12,7 @@ namespace EADBackEndAPI.Controllers
     {
         private readonly FuelTypeService fuelTypeService;
 
+        //initating srvice through constructor
         public FuelTypeController(FuelTypeService fuelTypeService)
         {
             this.fuelTypeService = fuelTypeService;

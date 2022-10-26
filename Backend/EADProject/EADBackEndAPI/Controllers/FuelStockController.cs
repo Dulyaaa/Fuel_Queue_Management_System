@@ -12,11 +12,13 @@ namespace EADBackEndAPI.Controllers
     {
         private readonly FuelStockService fuelStockService;
 
+        //initating srvice through constructor
         public FuelStockController(FuelStockService fuelStockService)
         {
             this.fuelStockService = fuelStockService;
         }
 
+        //API for get all Fuel Stock Details
         [HttpGet]
         [Route("GetAllFuelStock")]
         public async Task<List<FuelStockModel>> Get()
@@ -24,6 +26,7 @@ namespace EADBackEndAPI.Controllers
             return await fuelStockService.GetAsync();
         }
 
+        //API  for Save Fuel Stock Details
         [HttpPost]
         [Route("SaveFuelStock")]
         public async Task<IActionResult> SaveFuelStock([FromBody] FuelStockModel fuelStockModel)
@@ -32,6 +35,7 @@ namespace EADBackEndAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = fuelStockModel.FuelStockId }, fuelStockModel);
         }
 
+        //API for Upadte Fuel Stock Details
         [HttpPost]
         [Route("UpdateFuelStock")] 
         public async Task<IActionResult> UpdateFuelStock(FuelStockUpdateModel fuelStockUpdateModel)
