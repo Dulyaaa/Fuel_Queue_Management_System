@@ -14,9 +14,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="@color/purple"
-        android:textSize="35dp"
+        android:textSize="35sp"
         android:textStyle="bold"
         android:letterSpacing="0.03"/>
 
@@ -25,10 +25,10 @@
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:background="@drawable/forget"
-        android:text="Email"
+        android:text="@string/email"
         android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:paddingLeft="20dp"/>
 
@@ -37,10 +37,10 @@
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:background="@drawable/forget"
-        android:text="Password"
+        android:text="@string/password"
         android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:paddingLeft="20dp"/>
 
@@ -49,10 +49,10 @@
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:background="@drawable/forget"
-        android:text="Confirm Password"
+        android:text="@string/confirm_password"
         android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:paddingLeft="20dp"/>
 
@@ -61,10 +61,10 @@
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:background="@drawable/forget"
-        android:text="Role"
+        android:text="@string/role"
         android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:paddingLeft="20dp"/>
 
@@ -73,8 +73,8 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:background="@drawable/button"
-        android:text="Register"
-        android:textSize="18dp"
+        android:text="@string/register"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#FFF"
         android:layout_marginTop="25dp"/>
@@ -83,10 +83,10 @@
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an account? Sign In"
+        android:text="@string/already_have_an_account_sign_in"
         android:textColor="@color/purple"
         android:textStyle="bold"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_marginTop="15dp"/>
 
 </LinearLayout>

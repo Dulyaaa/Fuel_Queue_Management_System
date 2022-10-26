@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.station_owner.OwnerFuelTypeListActivity"
-    android:layout_margin="5sp">
+    android:layout_margin="5sp"
+    tools:context=".screen.station_owner.OwnerFuelTypeListActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/details_card"
@@ -41,7 +41,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:maxWidth="10dp"
-                    android:text="Filling Station Details"
+                    android:text="@string/filling_station_details"
                     android:textColor="#303030"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -75,7 +75,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:maxWidth="10dp"
-                    android:text="Perera Filling Station"
+                    android:text="@string/perera_filling_station"
                     android:textColor="#333333"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -108,7 +108,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:maxWidth="10dp"
-                    android:text="Borella"
+                    android:text="@string/borella"
                     android:textColor="#333333"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -142,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="15"
+                    android:text="@string/_15"
                     android:textColor="#333333"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -174,7 +174,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="12 min"
+                    android:text="@string/_12_min"
                     android:textColor="#333333"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -183,18 +183,6 @@
 
     </androidx.cardview.widget.CardView>
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView4"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom|center_horizontal"-->
-<!--        android:layout_marginStart="28dp"-->
-<!--        android:text="Available Fuel Details"-->
-<!--        android:textColor="@color/purple"-->
-<!--        android:textSize="20sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
@@ -202,7 +190,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="260dp"
-        android:text="Available Fuel Types"
+        android:text="@string/available_fuel_types"
         android:textColor="@color/purple"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -224,12 +212,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
-
-    <!--    <android.support.design.widget.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="bottom|end"-->
-<!--        android:src="@android:drawable/ic_dialog_email" />-->
 
 </RelativeLayout>

@@ -15,4 +15,49 @@
     <string name="queue_length"> Current vehicle count</string>
     <string name="average_time_to_fill_up"> Average filling up time</string>
     <string name="title_activity_add_new_fuel_type">Add New Fuel Type</string>
+    <!--    Add new fuel type details-->
+    <string name="add_new_fuel_type">Add New Fuel Type</string>
+    <string name="fuel_type">Fuel Type</string>
+    <string name="available_stock_quantity">Available Stock Quantity</string>
+    <string name="arrival_time">Arrival Time</string>
+    <string name="availability">Availability :</string>
+    <string name="when_the_stock_is_less_than_10_litres_the_pump_is_not_available">When the stock is less than 10 litres, the pump is not available.</string>
+    <string name="add_new_fuel_type_btn">Add New Fuel Type</string>
+    <!--    Fuel Details-->
+    <string name="perera_filling_station">Perera Filling Station</string>
+    <string name="borella">Borella</string>
+    <string name="_15">15</string>
+    <string name="_12_min">12 min</string>
+    <string name="available_fuel_details">Available Fuel Details</string>
+    <!--    Login Screen -->
+    <string name="login">Login</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <!--    Splash screen -->
+    <string name="on_demand">On-Demand</string>
+    <string name="fuel_app">FUEL APP</string>
+    <string name="register">Register</string>
+    <!--    Owner fuel station details -->
+    <string name="filling_station_details">Filling Station Details</string>
+    <string name="available_fuel_types">Available Fuel Types</string>
+    <!--    Register -->
+    <string name="confirm_password">Confirm Password</string>
+    <string name="role">Role</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign In</string>
+    <!--    Update fuel type-->
+    <string name="update_fuel_type">Update Fuel Type</string>
+    <string name="not_available">Not Available</string>
+    <string name="update_type">Update Type</string>
+    <!--    Alert dialog-->
+    <string name="successfully_joined_for_the_queue">Successfully joined for the queue!!!</string>
+    <string name="okay">Okay</string>
+    <!--    Fuel station list view items-->
+    <string name="octane_95">Octane 95</string>
+    <string name="current_vehicle_count">Current Vehicle Count</string>
+    <!--    Nested item fuel details -->
+    <string name="available_stock">Available Stock</string>
+    <string name="_15000_litres">15000 litres</string>
+    <string name="arrival_time_">Arrival Time :</string>
+    <string name="finish_time">Finish Time :</string>
 </resources>

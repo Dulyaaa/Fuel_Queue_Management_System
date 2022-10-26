@@ -40,7 +40,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:maxWidth="10dp"
-                    android:text="Update Fuel Type"
+                    android:text="@string/update_fuel_type"
                     android:textColor="#303030"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:gravity="left"
-                        android:hint="Fuel Type"
+                        android:hint="@string/fuel_type"
                         android:padding="30dp"
                         android:textColor="#000000"
                         android:textColorHint="#808080"
@@ -100,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:gravity="left"
-                        android:hint="Available Stock Quantity"
+                        android:hint="@string/available_stock_quantity"
                         android:padding="30dp"
                         android:textColor="#000000"
                         android:textColorHint="#808080"
@@ -131,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:background="#00000000"
                         android:gravity="left"
-                        android:hint="Arrival Time"
+                        android:hint="@string/arrival_time"
                         android:padding="30dp"
                         android:textColor="#000000"
                         android:textColorHint="#808080"
@@ -143,15 +143,15 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="6sp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                android:paddingBottom="6sp">
 
                 <TextView
                     android:id="@+id/availableStockUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Availability"
+                    android:text="@string/availability"
                     android:textColor="#8c8c8c"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -160,8 +160,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:textAlignment="center"
                     android:text="@string/split"
+                    android:textAlignment="center"
                     android:textSize="18sp" />
 
                 <TextView
@@ -169,7 +169,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Not Available"
+                    android:text="@string/not_available"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -179,31 +179,32 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="6sp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                android:paddingBottom="6sp">
 
                 <TextView
+                    android:id="@+id/availableStock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/availableStock"
                     android:backgroundTint="@color/lilac"
-                    android:drawableLeft="@android:drawable/stat_sys_warning"
-                    android:text=" When the stock is less than 10 litres, the pump is not available."
+                    android:text="@string/when_the_stock_is_less_than_10_litres_the_pump_is_not_available"
                     android:textColor="@color/purple_700"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@android:drawable/stat_sys_warning" />
 
             </TableRow>
+
             <Button
                 android:id="@+id/btn_log_in"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
-                android:text="Update Type"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:text="@string/update_type"
                 android:textColor="#FFF"
-                android:layout_marginTop="20dp"/>
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </TableLayout>
 
     </androidx.cardview.widget.CardView>

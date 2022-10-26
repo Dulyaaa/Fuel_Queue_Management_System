@@ -53,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
-                    android:text="Codelia"
+                    android:text="@string/octane_95"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -62,19 +62,9 @@
                     android:id="@+id/stocks"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vancouver"
+                    android:text="@string/_15000_litres"
                     android:textSize="18sp" />
             </LinearLayout>
-
-            <!--            <ImageView-->
-            <!--                android:id="@+id/arro_imageview"-->
-            <!--                android:layout_width="30dp"-->
-            <!--                android:layout_height="30dp"-->
-            <!--                android:layout_marginTop="20dp"-->
-            <!--                android:layout_marginEnd="16dp"-->
-            <!--                android:src="@drawable/arrow_down"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
             <TextView
                 android:id="@+id/statusTextView"
@@ -86,8 +76,8 @@
                 android:layout_marginEnd="80dp"
                 android:layout_marginRight="6dp"
                 android:background="@color/cream"
-                android:text="Active"
                 android:padding="5sp"
+                android:text="@string/availability"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
                 android:textStyle="bold" />

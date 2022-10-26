@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/availableStock"
-                android:text="Available Stock"
+                android:text="@string/available_stock"
                 android:textAlignment="center"
                 android:layout_weight="2.5"
                 android:textColor="#8c8c8c"
@@ -44,7 +44,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:textAlignment="textStart"
-                android:text="15000 litres"
+                android:text="@string/_15000_litres"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/arrivalTime"
-                android:text="Arrival Time :"
+                android:text="@string/arrival_time_"
                 android:textColor="#8c8c8c"
                 android:textSize="16sp"
                 android:layout_gravity="left"
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
-                android:text="Finish Time :"
+                android:text="@string/finish_time"
                 android:textColor="#8c8c8c"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="15"
+                android:text="@string/_15"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -99,7 +99,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
-                android:text="15"
+                android:text="@string/_15"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
                 android:textStyle="bold" />

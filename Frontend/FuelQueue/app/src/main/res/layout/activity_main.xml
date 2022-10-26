@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="On-Demand"
+        android:text="@string/on_demand"
         android:textColor="@color/purple"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FUEL APP"
+        android:text="@string/fuel_app"
         android:textColor="@color/purple"
         android:textSize="45sp"
         android:textStyle="bold" />
@@ -34,7 +34,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="#FFF"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -45,7 +45,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button"
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="#FFF"
         android:textSize="18sp"
         android:textStyle="bold" />
