@@ -45,6 +45,10 @@ public class FuelStock {
         this.status = status;
     }
 
+    public FuelStock() {
+
+    }
+
     public String getId() {
         return Id;
     }

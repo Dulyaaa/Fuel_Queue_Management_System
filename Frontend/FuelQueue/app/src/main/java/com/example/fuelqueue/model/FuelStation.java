@@ -7,9 +7,13 @@ import com.google.gson.annotations.SerializedName;
  * FuelStation model
  */
 public class FuelStation {
-    @SerializedName("shedId")
+    @SerializedName("id")
     @Expose
     public String Id;
+
+    @SerializedName("userId")
+    @Expose
+    public String userId;
 
     @SerializedName("shedName")
     @Expose
@@ -27,8 +31,9 @@ public class FuelStation {
     @Expose
     public String avgTime;
 
-    public FuelStation(String id, String stationName, String city, int queueLength, String avgTime) {
+    public FuelStation(String id, String userId, String stationName, String city, int queueLength, String avgTime) {
         Id = id;
+        this.userId = userId;
         this.stationName = stationName;
         this.city = city;
         this.queueLength = queueLength;
@@ -77,5 +82,13 @@ public class FuelStation {
 
     public void setAvgTime(String avgTime) {
         this.avgTime = avgTime;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

@@ -37,7 +37,7 @@
     <!--    Splash screen -->
     <string name="on_demand">On-Demand</string>
     <string name="fuel_app">FUEL APP</string>
-    <string name="register">Register</string>
+    <string name="register">Register Now</string>
     <!--    Owner fuel station details -->
     <string name="filling_station_details">Filling Station Details</string>
     <string name="available_fuel_types">Available Fuel Types</string>
@@ -60,4 +60,5 @@
     <string name="_15000_litres">15000 litres</string>
     <string name="arrival_time_">Arrival Time :</string>
     <string name="finish_time">Finish Time :</string>
+    <string name="user_name">User Name</string>
 </resources>

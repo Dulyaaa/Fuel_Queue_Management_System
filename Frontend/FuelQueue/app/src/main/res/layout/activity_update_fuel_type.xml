@@ -73,7 +73,7 @@
                         android:padding="30dp"
                         android:textColor="#000000"
                         android:textColorHint="#808080"
-                        android:textSize="15sp" />
+                        android:textSize="18sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </TableRow>
@@ -104,7 +104,7 @@
                         android:padding="30dp"
                         android:textColor="#000000"
                         android:textColorHint="#808080"
-                        android:textSize="15sp" />
+                        android:textSize="18sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </TableRow>
@@ -126,7 +126,7 @@
                     app:layout_constraintWidth_percent="0.7">
 
                     <EditText
-                        android:id="@+id/et_first_name"
+                        android:id="@+id/arrival_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00000000"
@@ -135,7 +135,7 @@
                         android:padding="30dp"
                         android:textColor="#000000"
                         android:textColorHint="#808080"
-                        android:textSize="15sp" />
+                        android:textSize="18sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </TableRow>
@@ -148,7 +148,7 @@
 
                 <TextView
                     android:id="@+id/availableStockUp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="183dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/availability"
@@ -157,19 +157,13 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="@string/split"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-                <TextView
                     android:id="@+id/txtAvailableStock"
-                    android:layout_width="wrap_content"
+                    android:layout_width="330dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@color/colorPrimary"
                     android:text="@string/not_available"
+                    android:textAlignment="textEnd"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -196,7 +190,7 @@
             </TableRow>
 
             <Button
-                android:id="@+id/btn_log_in"
+                android:id="@+id/btn_update"
                 android:layout_width="20dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"

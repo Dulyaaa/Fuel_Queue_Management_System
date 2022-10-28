@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     android:gravity="center_horizontal">
 
     <ImageView
-        android:layout_width="500dp"
-        android:layout_height="350dp"
-        android:src="@drawable/fuel_station"/>
+        android:layout_width="400dp"
+        android:layout_height="270dp"
+        android:src="@drawable/fuel_station"
+        android:contentDescription="image" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,58 +23,101 @@
         android:letterSpacing="0.03"/>
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/username"
         android:layout_width="350dp"
-        android:layout_height="45dp"
-        android:background="@drawable/forget"
-        android:text="@string/email"
-        android:textColor="@color/purple"
-        android:textStyle="bold"
-        android:textSize="18sp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"/>
+        android:background="@drawable/forget"
+        android:paddingStart="20dp"
+        android:textColor="@color/purple"
+        android:hint="@string/user_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:importantForAutofill="no"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="350dp"
-        android:layout_height="45dp"
-        android:background="@drawable/forget"
-        android:text="@string/password"
-        android:textColor="@color/purple"
-        android:textStyle="bold"
-        android:textSize="18sp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"/>
+        android:background="@drawable/forget"
+        android:paddingStart="20dp"
+        android:hint="@string/password"
+        android:textColor="@color/purple"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:importantForAutofill="no"
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/confirm_password"
         android:layout_width="350dp"
-        android:layout_height="45dp"
-        android:background="@drawable/forget"
-        android:text="@string/confirm_password"
-        android:textColor="@color/purple"
-        android:textStyle="bold"
-        android:textSize="18sp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"/>
+        android:background="@drawable/forget"
+        android:paddingStart="20dp"
+        android:hint="@string/confirm_password"
+        android:textColor="@color/purple"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:importantForAutofill="no"
+        android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/role"
-        android:layout_width="350dp"
-        android:layout_height="45dp"
-        android:background="@drawable/forget"
-        android:text="@string/role"
-        android:textColor="@color/purple"
-        android:textStyle="bold"
-        android:textSize="18sp"
+<!--    <EditText-->
+<!--        android:id="@+id/role"-->
+<!--        android:layout_width="350dp"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:background="@drawable/forget"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:text="@string/role"-->
+<!--        android:textColor="@color/purple"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold" />-->
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:showDividers="beginning|middle|end"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"/>
+        android:layout_marginBottom="15dp"
+        android:id="@+id/radioGroup"
+        android:layout_marginLeft="30dp">
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Station Owner"
+            android:buttonTint="@color/purple"
+            android:checked="false"
+            android:paddingRight="30sp"
+            android:textColor="@color/purple"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:buttonTint="@color/purple"
+            android:checked="true"
+            android:textColor="@color/purple"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:background="@drawable/button"
+        android:textAlignment="center"
         android:text="@string/register"
         android:textSize="18sp"
         android:textStyle="bold"

@@ -25,19 +25,22 @@ public class FuelStationsListViewAdapter extends BaseAdapter {
     /* Fuel Station related variables declaration */
     private final List<FuelStation> fuelStationsList;
     private final ArrayList<FuelStation> arraylist;
+    private final String userId;
 
     /**
      * Constructor
      *
      * @param context          context
      * @param fuelStationsList FuelStation object
+     * @param userId           userId
      */
-    public FuelStationsListViewAdapter(Context context, List<FuelStation> fuelStationsList) {
+    public FuelStationsListViewAdapter(Context context, List<FuelStation> fuelStationsList, String userId) {
         this.mContext = context;
         this.fuelStationsList = fuelStationsList;
         this.inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<>();
         this.arraylist.addAll(fuelStationsList);
+        this.userId = userId;
     }
 
     /**
@@ -87,16 +90,17 @@ public class FuelStationsListViewAdapter extends BaseAdapter {
         /* Locate UI in xml */
         TextView txtStationName = rowView.findViewById(R.id.txtStationName);
         TextView txtStationCity = rowView.findViewById(R.id.txtStationCity);
-        TextView txtQueueLength = rowView.findViewById(R.id.txtQueueLength);
+        TextView txtQueueLength = rowView.findViewById(R.id.length);
         TextView txtAvgTime = rowView.findViewById(R.id.txtAvgTime);
         /* Set the values to UI */
         txtStationName.setText(String.format("%s", fuelStationsList.get(position).getStationName()));
         txtStationCity.setText(String.format("%s", fuelStationsList.get(position).getCity()));
 //        txtQueueLength.setText(Integer.parseInt("%d", fuelStationsList.get(position).getQueueLength()));
 //        txtQueueLength.setText(String.valueOf(fuelStationsList.get(position).getQueueLength()));
-        txtQueueLength.setText("6");
+//        txtQueueLength.setText("6");
+        txtQueueLength.setText(String.format("%s", fuelStationsList.get(position).getQueueLength()));
+        txtAvgTime.setText(String.format("%s", fuelStationsList.get(position).getAvgTime()));
 //        txtAvgTime.setText(String.format("%s", fuelStationsList.get(position).getAvgTime()));
-        txtAvgTime.setText("10 min");
         /* Click on card view method */
         rowView.setOnClickListener(v -> {
             /* Pass data to next screen */
@@ -106,6 +110,7 @@ public class FuelStationsListViewAdapter extends BaseAdapter {
             intent.putExtra("station_city", fuelStationsList.get(position).getCity());
             intent.putExtra("queue_length", fuelStationsList.get(position).getQueueLength());
             intent.putExtra("avg_time", fuelStationsList.get(position).getAvgTime());
+            intent.putExtra("user_id", userId);
             mContext.startActivity(intent);
         });
         return rowView;

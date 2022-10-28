@@ -9,8 +9,8 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Web service urls of fuel stock for each function
@@ -36,12 +36,11 @@ public interface FuelStockService {
     /**
      * Update existing fuel stock record
      *
-     * @param id        object id
-     * @param fuelStock FuelStock object
+     * @param id object id
      * @return status code with response
      */
-    @PUT("/UpdateFuelStock/{id}")
-    Call<FuelStock> updateFuelStock(@Path("id") int id, @Body FuelStock fuelStock);
+    @POST("/UpdateFuelStock")
+    Call<Void> updateFuelStock(@Query("FuelStockId") String id, @Query("Stock") String stock, @Query("ArrivalTime") String arrivalTime, @Query("FinishTime") String finishTime);
 
     /**
      * Delete fuel stock record

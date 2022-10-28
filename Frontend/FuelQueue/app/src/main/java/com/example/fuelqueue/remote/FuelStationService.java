@@ -9,8 +9,8 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Web service urls of fuel station for each function
@@ -24,6 +24,17 @@ public interface FuelStationService {
      */
     @GET("/api/Shed/GetAll")
     Call<List<FuelStation>> getAllFuelStations();
+
+//    http://192.168.8.134:5000/GetVehicleCount?shedID=635b9fe917291f50b04322a3
+
+    /**
+     * Get vehicle count fby fuel station id
+     *
+     * @param stationId station id
+     * @return vehicle count
+     */
+    @GET("/GetVehicleCount")
+    Call<Integer> getVehicleCount(@Query("shedID") String stationId);
 
     /**
      * Create new fuel station
@@ -41,7 +52,7 @@ public interface FuelStationService {
      * @param fuelStation FuelStation object
      * @return status code with response
      */
-    @PUT("/api/Shed/Update/{id}")
+    @POST("/api/Shed/Update/{id}")
     Call<FuelStation> UpdateFuelStation(@Path("id") int id, @Body FuelStation fuelStation);
 
     /**

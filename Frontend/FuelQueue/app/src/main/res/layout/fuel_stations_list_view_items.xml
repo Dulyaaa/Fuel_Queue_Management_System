@@ -84,7 +84,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/txtQueueLength"
+                    android:id="@+id/length"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5sp"

@@ -51,6 +51,7 @@ public class NestedAdapter extends RecyclerView.Adapter<NestedAdapter.NestedView
     public void onBindViewHolder(@NonNull NestedViewHolder holder, int position) {
 //        holder.mTv.setText(mList.get(position).arrivalTime);
 //        holder.txtAvailableStock.setText(mList.get(position).arrivalTime);
+        holder.txtAvailableStock.setText(fuelDetails.get(position).stock);
         holder.txtArrivalTime.setText(fuelDetails.get(position).arrivalTime);
         holder.txtFinishTime.setText(fuelDetails.get(position).finishTime);
     }

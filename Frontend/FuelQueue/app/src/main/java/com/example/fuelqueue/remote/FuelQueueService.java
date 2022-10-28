@@ -9,8 +9,8 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Web service urls of fuel queue for each function
@@ -37,11 +37,10 @@ public interface FuelQueueService {
      * Update existing fuel queue record
      *
      * @param id        object id
-     * @param fuelQueue FuelQueue object
      * @return status code with response
      */
-    @PUT("/UpdateUserFuelQueue/{id}")
-    Call<FuelQueue> updateFuelQueue(@Path("id") int id, @Body FuelQueue fuelQueue);
+    @POST("/UpdateUserFuelQueue")
+    Call<Void> updateFuelQueue(@Query("QueueId") String id, @Query("Status") String status, @Query("DepartureTime") String departureTime);
 
     /**
      * Delete fuel queue record

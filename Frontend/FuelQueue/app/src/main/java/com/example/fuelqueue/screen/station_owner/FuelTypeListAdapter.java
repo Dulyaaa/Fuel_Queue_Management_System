@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +25,7 @@ public class FuelTypeListAdapter extends RecyclerView.Adapter<FuelTypeListAdapte
     /* Variables declaration */
     private final List<FuelStock> mData;
     private final LayoutInflater mInflater;
+    private static FuelStock fuelStock;
 
     /**
      * Constructor
@@ -81,7 +81,7 @@ public class FuelTypeListAdapter extends RecyclerView.Adapter<FuelTypeListAdapte
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         /* Variables declaration */
-        ImageView iconImage;
+//        ImageView iconImage;
         TextView fuelName, stocks, status;
         CardView cardView;
 
@@ -92,7 +92,7 @@ public class FuelTypeListAdapter extends RecyclerView.Adapter<FuelTypeListAdapte
          */
         ViewHolder(View itemView) {
             super(itemView);
-            iconImage = itemView.findViewById(R.id.iconImageView);
+//            iconImage = itemView.findViewById(R.id.iconImageView);
             fuelName = itemView.findViewById(R.id.fuelName);
             stocks = itemView.findViewById(R.id.stocks);
             status = itemView.findViewById(R.id.statusTextView);
@@ -100,6 +100,11 @@ public class FuelTypeListAdapter extends RecyclerView.Adapter<FuelTypeListAdapte
             /* onClick method on cardView */
             cardView.setOnClickListener(view -> {
                 Intent intent = new Intent(view.getContext(), UpdateFuelTypeActivity.class);
+                intent.putExtra("fuel_id", fuelStock.getId());
+                intent.putExtra("fuel_type", fuelStock.getFuelType());
+                intent.putExtra("stock", fuelStock.getStock());
+                intent.putExtra("arrival", fuelStock.getArrivalTime());
+                intent.putExtra("status", fuelStock.getStatus());
                 view.getContext().startActivity(intent);
             });
         }
@@ -114,7 +119,7 @@ public class FuelTypeListAdapter extends RecyclerView.Adapter<FuelTypeListAdapte
             fuelName.setText(item.getFuelType());
             stocks.setText(item.getStock());
             status.setText(item.getStatus());
+            fuelStock = item;
         }
-
     }
 }

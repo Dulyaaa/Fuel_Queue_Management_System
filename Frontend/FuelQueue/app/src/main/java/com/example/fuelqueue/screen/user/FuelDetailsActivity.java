@@ -58,6 +58,7 @@ public class FuelDetailsActivity extends AppCompatActivity {
     /* Other variables declaration */
     String station_id;
     Date currentTime = new Date();
+    String userId;
 
     /**
      * Initiate the screen with UI
@@ -79,23 +80,24 @@ public class FuelDetailsActivity extends AppCompatActivity {
         getFuelTypes();
         /* Initiate join for the queue method */
         btnJoin.setOnClickListener(v -> {
-            fuelQueue.setDepartureTime(getCurrentTime());
-            fuelQueue.setArrivalTime("");
+            fuelQueue.setArrivalTime(getCurrentTime());
+            fuelQueue.setDepartureTime("");
             fuelQueue.setStatus("InQueue");
             joinToQueue(fuelQueue);
         });
         /* Initiate exit from the queue method */
         btnExit.setOnClickListener(v -> {
             fuelQueue.setArrivalTime(fuelQueueDetails.getArrivalTime());
+            fuelQueue.setDepartureTime("");
             fuelQueue.setStatus("Exit");
-            updateFuelQueue(Integer.parseInt(fuelQueueDetails.getUserId()), fuelQueue, "exit");
+            updateFuelQueue(fuelQueueDetails.getId(), fuelQueue.getStatus(), fuelQueue.getDepartureTime(), "exit");
         });
         /* Initiate method for exit from the queue after filling up  */
         btnFilled.setOnClickListener(v -> {
             fuelQueue.setArrivalTime(fuelQueueDetails.getArrivalTime());
             fuelQueue.setDepartureTime(getCurrentTime());
             fuelQueue.setStatus("FilledUp");
-            updateFuelQueue(Integer.parseInt(fuelQueueDetails.getUserId()), fuelQueue, "filled");
+            updateFuelQueue(fuelQueueDetails.getId(), fuelQueue.getStatus(), fuelQueue.getDepartureTime(), "filled");
         });
     }
 
@@ -120,18 +122,19 @@ public class FuelDetailsActivity extends AppCompatActivity {
         /* Retrieve details from previous screen */
         Bundle extras = getIntent().getExtras();
         station_id = extras.getString("station_id");
+        userId = extras.getString("user_id");
         final String station_name = extras.getString("station_name");
         final String station_city = extras.getString("station_city");
-        final int queue_length = extras.getInt("queue_length");
+        final String queue_length = String.valueOf(extras.getInt("queue_length"));
         final String avg_time = extras.getString("avg_time");
         /* set for the xml attributes */
         txtStationName.setText(station_name);
         txtStationCity.setText(station_city);
-        txtQueueLength.setText("6");
-        txtAvgTime.setText("10 min");
+        txtQueueLength.setText(queue_length);
+        txtAvgTime.setText(avg_time);
         /* Other attributes setting  */
         fuelQueue.setFuelStationId(station_id);
-        fuelQueue.setUserId("1234");
+        fuelQueue.setUserId(userId);
     }
 
     /**
@@ -233,7 +236,7 @@ public class FuelDetailsActivity extends AppCompatActivity {
                     fuelQueueDetails = response.body();
                     Log.e("fuelQueueDetails: ", String.valueOf(fuelQueueDetails));
                     Toast.makeText(FuelDetailsActivity.this, "Joined to the queue successfully!", Toast.LENGTH_SHORT).show();
-                    showAlertDialog(R.layout.dialog_alert_join);
+//                    showAlertDialog(R.layout.dialog_alert_join);
                     /* Disable clickable of join button */
                     btnJoin.setEnabled(false);
                 }
@@ -250,35 +253,35 @@ public class FuelDetailsActivity extends AppCompatActivity {
     /**
      * Update the fuel queue record
      *
-     * @param id        FuelQueue id
-     * @param fuelQueue FuelQueue object
-     * @param btnType   btnType
+     * @param id      FuelQueue id
+     * @param btnType btnType
      */
-    public void updateFuelQueue(int id, FuelQueue fuelQueue, String btnType) {
+    public void updateFuelQueue(String id, String status, String finishTime, String btnType) {
         /* Initiate the fuel queue service for create fuel queue record */
-        Call<FuelQueue> call = fuelQueueService.updateFuelQueue(id, fuelQueue);
-        call.enqueue(new Callback<FuelQueue>() {
+        Call<Void> call = fuelQueueService.updateFuelQueue(id, status, finishTime);
+        call.enqueue(new Callback<Void>() {
             /* Calling backend service and get response from sever */
             @Override
-            public void onResponse(@NonNull Call<FuelQueue> call, @NonNull Response<FuelQueue> response) {
+            public void onResponse(@NonNull Call<Void> call, @NonNull Response<Void> response) {
                 if (response.isSuccessful()) {
-                    fuelQueueDetails = response.body();
-                    Log.e("fuelQueueDetails: ", String.valueOf(fuelQueueDetails));
-                    Toast.makeText(FuelDetailsActivity.this, "Queue details updated successfully!", Toast.LENGTH_LONG).show();
                     /* Disable the clickable of button */
-                    if (btnType.equals("exit")) {
-                        showAlertDialog(R.layout.dialog_alert_exit);
+                    if (btnType.equalsIgnoreCase("exit")) {
+                        Toast.makeText(FuelDetailsActivity.this, "Exited from the queue!!", Toast.LENGTH_LONG).show();
+//                        showAlertDialog(R.layout.dialog_alert_exit);
                         btnExit.setEnabled(false);
-                    } else {
-                        showAlertDialog(R.layout.dialog_alert_filled);
                         btnFilled.setEnabled(false);
+                    } else {
+//                        showAlertDialog(R.layout.dialog_alert_filled);
+                        Toast.makeText(FuelDetailsActivity.this, "Tank filled up successfully!", Toast.LENGTH_LONG).show();
+                        btnFilled.setEnabled(false);
+                        btnExit.setEnabled(false);
                     }
                 }
             }
 
             /* Check the error when not called backend service */
             @Override
-            public void onFailure(@NonNull Call<FuelQueue> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });
