@@ -36,10 +36,10 @@ namespace EADBackEndAPI.Services
         }
 
         //Login
-        public async Task<UserModel> GetUserByName(string username)
+        public async Task<UserModel> GetUserByName(string username, string password)
         {
             var usersawait= await _UserCollection.Find(new BsonDocument()).ToListAsync();
-            var user = usersawait.Where(x=>x.UserName == username).FirstOrDefault();
+            var user = usersawait.Where(x=>x.UserName == username && x.UserPassword == password).FirstOrDefault();
             return user;
         }
 

@@ -38,9 +38,9 @@ namespace EADBackEndAPI.Controllers
         //API for get the user details by name and password
         [HttpGet]
         [Route("GetUserByName")]
-        public async Task<UserModel> GetUserByName(string username)
+        public async Task<UserModel> GetUserByName(string username, string password)
         {
-            return await userService.GetUserByName(username);
+            return await userService.GetUserByName(username, password);
         }
     }
 }
