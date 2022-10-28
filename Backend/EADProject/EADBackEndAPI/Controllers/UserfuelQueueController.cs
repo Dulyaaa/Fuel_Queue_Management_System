@@ -47,9 +47,9 @@ namespace EADBackEndAPI.Controllers
         //API for get the total vehicle count in a queue
         [HttpGet]
         [Route("GetVehicleCount")]
-        public async Task<int> GetVehicleCount()
+        public async Task<int> GetVehicleCount(string shedID)
         {
-            return await userfuelQueueService.GetVehicleCount();
+            return await userfuelQueueService.GetVehicleCount(shedID);
         }
     }
 }

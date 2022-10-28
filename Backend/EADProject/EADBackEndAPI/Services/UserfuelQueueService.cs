@@ -46,10 +46,10 @@ namespace EADBackEndAPI.Services
         }
 
         //Get the queue length by using in queue user count
-        public async Task<int> GetVehicleCount()
+        public async Task<int> GetVehicleCount(string shedID)
         {
             var vehicleawait = await _UserQueueCollection.Find(new BsonDocument()).ToListAsync();
-            var status = vehicleawait.Where(x => x.Status == "InQueue");
+            var status = vehicleawait.Where(x => x.Status == "InQueue" && x.ShedId == shedID);
             var QueueLength = status.Count();
 
             return QueueLength;
