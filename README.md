@@ -14,16 +14,6 @@ of the fuel. That status should be visible to all users.
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 
-### My contribution to the project was:
-- Implemented the Login Screen
-- Admin dashBoard
-- Admin page to view list of flowers as an admin
-- Add new flower details
-- Update flower details
-- Delete flower details
-- User dashboard
-- User page to view list of flowers as a user
-
 ## Screenshots of my part of working project:
 
 | <img alt="1PNG" src="https://user-images.githubusercontent.com/57215584/205432200-e9c494ce-f05c-467a-a58d-24822724ac36.jpg"> | <img  alt="2PNG" a src="https://user-images.githubusercontent.com/57215584/205432204-b991bdc5-fcd2-4fb6-9c19-7a38ba4ca934.jpg"> | <img alt="1PNG" src="https://user-images.githubusercontent.com/57215584/205432207-28f39063-7955-4a08-82f6-d97dace94c05.jpg">
